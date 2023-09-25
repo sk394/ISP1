@@ -122,8 +122,18 @@
    <!-- Github Link at the top -->
   <a href="https://www.github.com/sk394" class="link-to-portfolio" target="_blank"></a>
   <script>
-    document.querySelector(".dateFinished").innerHTML = new Date("2023-09-13, 12:35:40");
-document.querySelector(".currentDate").innerHTML = new Date();
+    function updatedate(){
+      const currentDate = document.querySelector('.currentDate');
+      const customDate = document.querySelector('.dateFinished');
+
+      const custom = new Date('2023-09-24T00:00:00');
+      const current = new Date();
+
+      currentDate.textContent = current.toLocaleString();
+      customDate.textContent = custom.toLocaleString();
+    }
+    updatedate();
+    setInterval(updatedate, 1000); //update date and time every seconds
   </script>
 </body>
 
