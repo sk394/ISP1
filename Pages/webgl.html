@@ -5,10 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Webgl Animation</title>
-    <link rel="stylesheet" href="CSS/webgl.css" />
+    <style>
+        body {
+    margin: 0;
+    overflow: hidden;
+    cursor: none;
+    background-color: #010615;
+}
+
+
+#image {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color:green;
+    background-image: url("https://pluspng.com/img-png/png-head-download-png-256px-256.png");
+    background-size:cover;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+    cursor:pointer;
+}
+
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    left:50%;
+}
+
+h2{
+    color:#13091B;
+    background: #007A99;
+    font-size:18px;
+    letter-spacing: 0.1em;
+    z-index:0;
+    width:60vh;
+}
+
+canvas{
+   justify-items:center;
+   align-items:center;
+   margin-left:40%;
+}
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
-    <script src="Js/webgl.js" defer></script>
 </head>
 <body>
     <div id="image" style="z-index:1;"></div>
@@ -18,5 +61,109 @@
         </h2>
            <div class="starfield"></div>
    </div>
+    <script>
+        const image = document.getElementById('image');
+
+document.addEventListener('click', (e) => {
+  const x = e.clientX;
+  const y = e.clientY;
+
+  // Calculate the translation values for the image to follow the cursor
+  const translateX = x - image.offsetWidth / 2;
+  const translateY = y - image.offsetHeight / 2;
+
+  // Apply the translation with smooth animation
+  image.style.transform = `translate(${translateX}px, ${translateY}px)`;
+});
+
+let earth;
+let img;
+let vid;
+let locX;
+let locY;
+let rotateTheY, rotateTheX;
+let mouseIsDown = false;
+let theta = 0;
+let earthR = 100
+
+// slide to see how detailY works
+function setup() {
+  img = loadImage('/public/earth.jpg');
+  createCanvas(300, 300, WEBGL);
+
+  cursor('grab');
+}
+
+function draw() {
+  background("#010615");
+
+
+
+  // shininess(20);
+  ambientLight(150);
+  locX = mouseX - width / 2;
+  locY = mouseY - height / 2;
+
+  if (mouseIsDown == false) {
+    rotateTheX = rotateX(0);
+    rotateTheY = rotateY(millis() / 5000);
+  } else {
+    rotateTheX = rotateX(-locY / 180);
+    rotateTheY = rotateY(locX / 180);
+  }
+
+
+
+  //pointLight(v1, v2, v3, x, y, z)
+  pointLight(25, 250, 25, locX, locY, 200);
+  // specularColor(0, 255, 0);
+  pointLight(255, 255, 255, 50, 50, 150);
+  //specularMaterial(255);
+  texture(img);
+  earth = sphere(earthR, 25, 25);
+
+
+}
+function mouseDragged() {
+
+  mouseIsDown = true;
+
+}
+
+function mousePressed() {
+  mouseIsDown = true;
+
+  rotateTheX = rotateX(-locY / 180);
+  rotateTheY = rotateY(locX / 180);
+  console.log(earth.pRotationY);
+  cursor('grabbing');
+}
+
+function mouseReleased() {
+  mouseIsDown = false;
+  cursor('grab');
+}
+
+
+
+let h = window.innerHeight;
+let w = window.innerWidth;
+let starField = document.querySelector(".starfield");
+
+
+//random number generator
+function randNum(from, to) {
+  return Math.floor(Math.random() * (to - from + 1) + from);
+}
+
+
+function addClass(query, theClass) {
+  var x = document.querySelectorAll(query);
+  for (var i = 0; i < x.length; i++) {
+    x[i].classList.add(theClass);
+  }
+}
+
+    </script>
 </body>
 </html>
