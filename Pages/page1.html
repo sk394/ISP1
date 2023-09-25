@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="/Js/pageDetails.js" defer></script>
+
+  <title>Page Url</title>
+  <style>
+    .box {
+      background: url('https://treehouse-code-samples.s3.amazonaws.com/CSS-DD/codepen/stage-7/bg.png');
+      box-shadow: 2px 2px 15px 5px blue, -2px -2px 15px 5px red, 0 20px 25px -8px #000;
+      justify-items: center;
+      align-items: center;
+    }
+
+    h2 {
+      text-align: center;
+      color: rgb(6, 141, 182);
+    }
+
+    main {
+      text-align: center;
+      color: rgb(0, 0, 0);
+    }
+
+    button {
+      width: 130px;
+      height: 40px;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px 25px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+      box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+      outline: none;
+    }
+
+    .btn-3 {
+      background: rgb(0, 172, 238);
+      background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
+      width: 130px;
+      height: 40px;
+      line-height: 42px;
+      padding: 0;
+      border: none;
+
+    }
+
+    .btn-3 a {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      font-size: medium;
+    }
+
+    .btn-3:before,
+    .btn-3:after {
+      position: absolute;
+      content: "";
+      right: 0;
+      top: 0;
+      background: rgba(2, 126, 251, 1);
+      transition: all 0.3s ease;
+    }
+
+    .btn-3:before {
+      height: 0%;
+      width: 2px;
+    }
+
+    .btn-3:after {
+      width: 0%;
+      height: 2px;
+    }
+
+    .btn-3:hover {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .btn-3:hover:before {
+      height: 100%;
+    }
+
+    .btn-3:hover:after {
+      width: 100%;
+    }
+
+    .btn-3 a:hover {
+      color: rgba(2, 126, 251, 1);
+    }
+
+    .btn-3 a:before,
+    .btn-3 a:after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0;
+      background: rgba(2, 126, 251, 1);
+      transition: all 0.3s ease;
+    }
+
+    .btn-3 a:before {
+      width: 2px;
+      height: 0%;
+    }
+
+    .btn-3 a:after {
+      width: 0%;
+      height: 2px;
+    }
+
+    .btn-3 a:hover:before {
+      height: 100%;
+    }
+
+    .btn-3 a:hover:after {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h2>Page Details</h2>
+    <hr style="color: green; width: 50%" />
+    <main>
+
+      <p class="pageUrl"></p>
+      <p class="pageHost"></p>
+      <p class="pagePath"></p>
+      <p class="pageProtocol"></p>
+      <p class="pageUpdate"></p>
+      <p class="pageLoad"></p>
+      <h2>Mouse Details</h2>
+      <hr style="color: green; width: 50%" />
+      <p class="mouseRun"></p>
+      <h2>Browser Details</h2>
+      <hr style="color: green; width: 50%" />
+      <p class="browserName"></p>
+      <p class="browserPlatform"></p>
+      <p class="os"></p>
+      <h2>Screen Details</h2>
+      <hr style="color: green; width: 50%" />
+      <p class="screenWidth"></p>
+      <p class="screenHeight"></p>
+
+      <h2>For the Webgl and animation</h2>
+      <hr style="color: green; width: 50%" />
+      <p>This section fulfills the requirement 3 of the assignment 1. I have implemented the Interactive
+        animation using JS. The animation is a simple one, where the user can click anywhere on the screen
+        and
+        the thumbnail image follows to that clicked position.
+      </p>
+      <button class="btn-3"><a href="/Pages/webgl.html" target="_blank">Click Here</a></button>
+
+      <h2>Video</h2>
+      <hr style="color: green; width: 50%" />
+      <p>This section shows the video implementation in our webpage.</p>
+      <video controls width="250">
+        <source src="/public/video.mp4" type="video/mp4" />
+        Your browser doesnt support the video tag.
+      </video>
+
+
+    </main>
+  </div>
+
+
+
+  </div>
+
+
+
+
+
+</body>
+
+</html>

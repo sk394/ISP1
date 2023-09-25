@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    cursor: none;
+    background-color: #010615;
+}
+
+
+#image {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color:green;
+    background-image: url("https://pluspng.com/img-png/png-head-download-png-256px-256.png");
+    background-size:cover;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+    cursor:pointer;
+}
+
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    left:50%;
+}
+
+h2{
+    color:#13091B;
+    background: #007A99;
+    font-size:18px;
+    letter-spacing: 0.1em;
+    z-index:0;
+    width:60vh;
+}
+
+canvas{
+   justify-items:center;
+   align-items:center;
+   margin-left:40%;
+}
